@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    //id 'distribution'
+}
+
+group 'org.example.pravega.customauthhandler'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+allprojects {
+    apply plugin: "idea"
+    apply plugin: "eclipse"
+}
+
+dependencies {
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    compile "io.pravega:pravega-shared-authplugin:${pravegaVersion}",
+            //"commons-io:commons-io:2.6",
+            "org.slf4j:slf4j-api:${slf4jApiVersion}",
+            "ch.qos.logback:logback-classic:${logbackVersion}",
+            "junit:junit:${junitVersion}"
+}
