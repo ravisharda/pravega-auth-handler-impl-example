@@ -2,24 +2,29 @@ package org.example.pravega.authhandler.plugin;
 
 import io.pravega.auth.AuthException;
 import io.pravega.auth.AuthHandler;
+import io.pravega.auth.AuthenticationException;
 import io.pravega.auth.ServerConfig;
 import lombok.extern.slf4j.Slf4j;
 
 import java.security.Principal;
 
 @Slf4j
-public class StaticTokenAuthHandler implements AuthHandler {
+public class CustomAuthHandler implements AuthHandler {
 
     private static final String TOKEN = "static-token";
 
     @Override
     public String getHandlerName() {
-        return "StaticTokenAuthHandler";
+        return "CustomMethod";
     }
 
     @Override
     public Principal authenticate(String token) throws AuthException {
-        return new TokenPrincipal(TOKEN);
+        if (token.equals(TOKEN)) {
+            return new CustomPrincipal(TOKEN);
+        } else {
+            throw new AuthenticationException("Specified token was invalid");
+        }
     }
 
     @Override

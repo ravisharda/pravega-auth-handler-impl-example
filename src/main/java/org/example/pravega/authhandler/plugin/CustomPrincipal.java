@@ -7,11 +7,11 @@ import java.security.Principal;
 
 @Slf4j
 @ToString
-public class TokenPrincipal implements Principal {
+public class CustomPrincipal implements Principal {
 
     private String token;
 
-    TokenPrincipal(String token) {
+    CustomPrincipal(String token) {
         if (token == null || token.trim().isEmpty()) {
             log.warn("Token is blank");
             throw new IllegalArgumentException("token is blank");
