@@ -2,9 +2,17 @@
 
 An example service provider implementation for Pravega AuthHandler
 
-## Setting it up in Pravega Standalone
+## Building the Example
 
-Modify startStandalone task: 
+```gradle
+$ gradlew clean build
+```
+
+## Deploying the Example  
+
+### Deploying the Example in Pravega Standalone by Modifying the Gradle Config
+
+Modify startStandalone task in `build.gradle`: 
 
 ```gradle
 task startStandalone(type: JavaExec) {
