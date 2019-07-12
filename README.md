@@ -2,11 +2,17 @@
 
 An example service provider implementation for Pravega AuthHandler
 
-## Setting it up in Pravega Standalone 
+## Building the Example
 
-### Static Mode
+```gradle
+$ gradlew clean build
+```
 
-Modify startStandalone task: 
+## Deploying the Example  
+
+### Deploying the Example in Pravega Standalone by Modifying the Gradle Config
+
+Modify startStandalone task in `build.gradle`: 
 
 ```gradle
 task startStandalone(type: JavaExec) {
@@ -32,8 +38,5 @@ task startStandalone(type: JavaExec) {
     }
 
 ```
-
-### Dynamic Mode
-
 
 
