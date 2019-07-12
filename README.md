@@ -2,7 +2,9 @@
 
 An example service provider implementation for Pravega AuthHandler
 
-## Setting it up in Pravega Standalone
+## Setting it up in Pravega Standalone 
+
+### Static Mode
 
 Modify startStandalone task: 
 
@@ -30,5 +32,8 @@ task startStandalone(type: JavaExec) {
     }
 
 ```
+
+### Dynamic Mode
+
 
 

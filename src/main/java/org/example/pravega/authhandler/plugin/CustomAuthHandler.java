@@ -21,7 +21,9 @@ public class CustomAuthHandler implements AuthHandler {
     @Override
     public Principal authenticate(String token) throws AuthException {
         if (token.equals(TOKEN)) {
-            return new CustomPrincipal(TOKEN);
+            Principal result = new CustomPrincipal(TOKEN);
+            log.debug("Returning principal: {}", result);
+            return result;
         } else {
             throw new AuthenticationException("Specified token was invalid");
         }
