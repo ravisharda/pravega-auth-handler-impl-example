@@ -27,6 +27,7 @@ task startStandalone(type: JavaExec) {
         ...
         
         // Add these to configure ClientConfig for internal use inside the cluster
+        systemProperties 'pravega.client.auth.loadDynamic' : "true"
         systemProperties 'pravega.client.auth.method' : "StaticTokenAuthHandler"
         systemProperties 'pravega.client.auth.token' : "static-token"
 
@@ -37,6 +38,14 @@ task startStandalone(type: JavaExec) {
 
     }
 
+```
+
+```
+        /*Properties properties = new Properties();
+        properties.setProperty("pravega.client.auth.loadDynamic", "true");
+        properties.setProperty("pravega.client.auth.method", "CustomMethod");
+        properties.setProperty("pravega.client.auth.token", "static-token");
+        System.setProperties(properties);*/
 ```
 
 
